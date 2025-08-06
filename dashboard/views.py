@@ -14,5 +14,10 @@ def index(request):
         'title': "Landing Page' Dashboard",
         'total_responses': total_responses,
     }
+    #Agregar interesados en Renovar Baño,Mejora de Cocina, 
+    #Instalación de Azulejos en indicador 2, 3 y 4
+    #En columnas 1 nombre completo y 2 email
+    #El grafico de Respuesta vs Tiempo y 
+
         # return HttpResponse("¡Bienvenido a la aplicación Django!")
     return render(request, 'dashboard/index.html',data)

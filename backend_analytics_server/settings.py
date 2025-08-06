@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-o&^a9$k!#1v8r8%p&4zhd6@+um1&8==up(tlux2fai(o!@w!fb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000"]
 
 
 # Application definition
@@ -125,4 +126,4 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-API_URL = 'https://jsonplaceholder.typicode.com/posts'
+API_URL = 'https://brayanbriones.pythonanywhere.com/landing/api/index/?format=json'
