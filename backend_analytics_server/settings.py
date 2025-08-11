@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-o&^a9$k!#1v8r8%p&4zhd6@+um1&8==up(tlux2fai(o!@w!fb
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000"]
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000",
+                        "https://localhost:8000"]
 
 
 # Application definition
@@ -122,6 +123,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, STATIC_URL),
 ]
+# Fallo: acceso sin autenticación
+LOGIN_URL = '/login/'
+
+# Éxito: luego de autenticación exitosa
+LOGIN_REDIRECT_URL = '/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
