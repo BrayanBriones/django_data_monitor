@@ -22,11 +22,11 @@
         </div>
         <div>
           <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-            Número total de respuestas
+            Número total de visitantes
           </p>
           <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
             <!-- START - valor del indicador 1 -->
-            {{ total_responses }}
+            {{ total_visitantes }}
             <!-- END - valor del indicador 1 -->
           </p>
         </div>
@@ -43,12 +43,12 @@
         </div>
         <div>
           <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-            Indicador 2
+            Número total de respuestas
           </p>
           <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
 
             <!-- START - valor del indicador 2 -->
-            Valor 2
+            {{ total_respuestas }}
             <!-- END - valor del indicador 2 -->
 
           </p>
@@ -66,12 +66,12 @@
         </div>
         <div>
           <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-            Indicador 3
+            Número total de respuesta hoy
           </p>
           <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
 
             <!-- START - valor del indicador 3 -->
-            Valor 3
+            {{ respuestas_de_hoy }}
             <!-- END - valor del indicador 3 -->
 
           </p>
@@ -89,12 +89,12 @@
         </div>
         <div>
           <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-            Indicador 4
+            Tasa de conversion general
           </p>
           <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-
+            
             <!-- START - valor del indicador 4 -->
-            Valor 4
+            {{ tasa_conversion }}
             <!-- END - valor del indicador 4 -->
 
           </p>
@@ -118,30 +118,32 @@
               </tr>
             </thead>
             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-
+              {% for c1, c2 in filas %}
               <!-- START - respuestas -->
               <tr class="text-gray-700 dark:text-gray-400">
                 <td class="px-4 py-3 text-sm">
                   <!-- START - fila.valor1 -->
-                  fila.valor1
+                  {{ c1 }}
                   <!-- END - fila.valor1 -->
                 </td>
                 <td class="px-4 py-3 text-sm">
                   <!-- START - fila.valor2 -->
-                  fila.valor2
+                  {{ c2 }}
                   <!-- END - fila.valor2 -->
                 </td>
               </tr>
               <!-- END - respuestas -->
+              {% empty %}
+              <tr><td colspan="2" class="px-4 py-3 text-sm">Sin datos</td></tr>
+              {% endfor %}
 
-            </tbody>
           </table>
         </div>
         <div
           class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
           <span class="flex items-center col-span-3">
             <!-- START - # total de respuestas -->
-            XXX
+            {{ total_respuestas }}
             <!-- END - # total de respuestas -->
             respuestas
           </span>
