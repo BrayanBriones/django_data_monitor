@@ -166,3 +166,9 @@
 
   </div>
 </main>
+<script>
+  // Pasar los datos a variables globales
+  window.chartLabels = JSON.parse('{{ chart_labels|escapejs }}');
+  window.chartVisitantes = JSON.parse('{{ chart_visitantes|escapejs }}');
+  window.chartRespuestas = JSON.parse('{{ chart_respuestas|escapejs }}');
+</script>
