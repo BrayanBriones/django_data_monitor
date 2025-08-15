@@ -124,9 +124,9 @@ def index(request):
         "respuestas_de_hoy": respuestahoy,
         "tasa_conversion": round(tasa, 3),
         "filas": filas,  # ← lista de tuplas (col1, col2)
-        "chart_labels": chart_labels,
-        "chart_visitantes": chart_visitantes,
-        "chart_respuestas": chart_respuestas,
+        "chart_labels": json.dumps(chart_labels, ensure_ascii=False),
+        "chart_visitantes": json.dumps(chart_visitantes),
+        "chart_respuestas": json.dumps(chart_respuestas),
     }
 
     # return HttpResponse("¡Bienvenido a la aplicación Django!")
