@@ -1,7 +1,6 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.http import HttpResponse
 import requests
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -26,9 +25,6 @@ def index(request):
             return dt.replace(tzinfo=tz)
         except ValueError:
             return None
-
-    def visitor_key(e):
-        return e.get("correo") or e.get("usuario") or e.get("nombre") or e.get("_id")
 
     # llamada de API
     response = requests.get(settings.API_URL)  # URL de la API
@@ -123,11 +119,10 @@ def index(request):
         "total_respuestas": completados,
         "respuestas_de_hoy": respuestahoy,
         "tasa_conversion": round(tasa, 3),
-        "filas": filas,  # ← lista de tuplas (col1, col2)
+        "filas": filas,  # lista de tuplas (col1, col2)
         "chart_labels": json.dumps(chart_labels, ensure_ascii=False),
         "chart_visitantes": json.dumps(chart_visitantes),
         "chart_respuestas": json.dumps(chart_respuestas),
     }
 
-    # return HttpResponse("¡Bienvenido a la aplicación Django!")
     return render(request, "dashboard/index.html", data)
